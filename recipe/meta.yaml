@@ -10,6 +10,12 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   md5: ad924928983014e6b8ce5422d7687832
   patches:
+    # Fixes an issue where libraries with @rpath set
+    # on OS X could not be found.
+    #
+    # https://github.com/pyinstaller/pyinstaller/pull/1965
+    #
+    - PR_1965.diff
     # Fixes an issue where libpython would not be found
     # if it had a suffix (e.g. `m`). The PR used is
     # linked below.
@@ -19,7 +25,7 @@ source:
     - PR_1971.diff
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   features:
     - vc9     # [win and py27]
