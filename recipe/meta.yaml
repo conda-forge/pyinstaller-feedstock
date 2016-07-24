@@ -19,7 +19,7 @@ source:
     - PR_1971.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   features:
     - vc9     # [win and py27]
@@ -33,7 +33,7 @@ build:
     - pyi-makespec = PyInstaller.utils.cliutils.makespec:run
     - pyi-set_version = PyInstaller.utils.cliutils.set_version:run
   script:
-    - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"               # [linux]
+    - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"               # [unix]
     - pushd bootloader
     - waf --prefix="${PREFIX}" --clang distclean all            # [osx]
     - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
