@@ -26,11 +26,10 @@ source:
 
 build:
   number: 2
-  skip: true  # [win]
   features:
-    - vc9     # [win and py27]
-    - vc10    # [win and py34]
-    - vc14    # [win and py35]
+    - vc9   # [win and py27]
+    - vc10  # [win and py34]
+    - vc14  # [win and py>=35]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -55,13 +54,21 @@ requirements:
     - setuptools
     - waf
     - zlib 1.2.*
+    - vc 9  # [win and py27]
+    - vc 10  # [win and py34]
+    - vc 14  # [win and py>=35]
 
   run:
     - python
     - setuptools
+    - pefile  # [win]
     - pycrypto
+    - pywin32  # [win]
     - zlib 1.2.*
-
+    - vc 9  # [win and py27]
+    - vc 10  # [win and py34]
+    - vc 14  # [win and py>=35]
+ 
 test:
   imports:
     - PyInstaller
@@ -83,3 +90,4 @@ about:
 extra:
   recipe-maintainers:
     - jakirkham
+    - nicoddemus

@@ -11,6 +11,18 @@ Summary: PyInstaller bundles a Python application and all its dependencies into 
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pyinstaller-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pyinstaller-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/pyinstaller-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pyinstaller-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pyinstaller-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pyinstaller-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyinstaller/badges/version.svg)](https://anaconda.org/conda-forge/pyinstaller)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyinstaller/badges/downloads.svg)](https://anaconda.org/conda-forge/pyinstaller)
+
 Installing pyinstaller
 ======================
 
@@ -66,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pyinstaller-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pyinstaller-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pyinstaller-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pyinstaller-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyinstaller/badges/version.svg)](https://anaconda.org/conda-forge/pyinstaller)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyinstaller/badges/downloads.svg)](https://anaconda.org/conda-forge/pyinstaller)
 
 
 Updating pyinstaller-feedstock
