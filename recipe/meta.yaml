@@ -1,5 +1,5 @@
 {% set name = "PyInstaller" %}
-{% set version = "3.2" %}
+{% set version = "3.2.1" %}
 
 package:
   name: {{ name.lower() }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: PyInstaller-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  md5: ad924928983014e6b8ce5422d7687832
+  sha256: f08ca806bc26e62034bca181a4b85de22568a3d39bdb062f05927c6e86c2a48c
   patches:
     # Fixes an issue where libraries with @rpath set
     # on OS X could not be found.
@@ -25,7 +25,7 @@ source:
     - PR_1971.diff
 
 build:
-  number: 2
+  number: 0
   features:
     - vc9   # [win and py27]
     - vc10  # [win and py34]
