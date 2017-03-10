@@ -1,31 +1,23 @@
 {% set name = "PyInstaller" %}
-{% set version = "3.2" %}
+{% set version = "3.2.1" %}
 
 package:
   name: {{ name.lower() }}
   version: {{ version }}
 
 source:
-  fn: PyInstaller-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  md5: ad924928983014e6b8ce5422d7687832
+  fn: PyInstaller-{{ version }}.tar.bz2
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.bz2
+  sha256: f08ca806bc26e62034bca181a4b85de22568a3d39bdb062f05927c6e86c2a48c
   patches:
-    # Fixes an issue where libraries with @rpath set
-    # on OS X could not be found.
+    # Fix logging: Don't defer initialization of logger.
     #
-    # https://github.com/pyinstaller/pyinstaller/pull/1965
+    # https://github.com/pyinstaller/pyinstaller/commit/10f5e44604e163383f8f32ab05307edd69ecab1c
     #
-    - PR_1965.diff
-    # Fixes an issue where libpython would not be found
-    # if it had a suffix (e.g. `m`). The PR used is
-    # linked below.
-    #
-    # https://github.com/pyinstaller/pyinstaller/pull/1971
-    #
-    - PR_1971.diff
+    - 0001-Fix-logging-Don-t-defer-initialization-of-logger.patch
 
 build:
-  number: 2
+  number: 0
   features:
     - vc9   # [win and py27]
     - vc10  # [win and py34]
