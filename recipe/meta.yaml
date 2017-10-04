@@ -71,6 +71,7 @@ test:
 about:
   home: http://www.pyinstaller.org
   license: GPL 2
+  license_file: COPYING.txt
   summary: PyInstaller bundles a Python application and all its dependencies into a single package.
 
 extra:
