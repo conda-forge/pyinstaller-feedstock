@@ -7,7 +7,7 @@ package:
 
 source:
   fn: PyInstaller-{{ version }}.tar.bz2
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.bz2
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b6c95cdbb45ac78a44723fa2992b58e14637cbefecafc22d3790af262a7fad6f
 
 build:
