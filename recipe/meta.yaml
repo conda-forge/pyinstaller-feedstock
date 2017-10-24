@@ -1,5 +1,5 @@
 {% set name = "PyInstaller" %}
-{% set version = "3.2.1" %}
+{% set version = "3.3" %}
 
 package:
   name: {{ name.lower() }}
@@ -7,14 +7,8 @@ package:
 
 source:
   fn: PyInstaller-{{ version }}.tar.bz2
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.bz2
-  sha256: f08ca806bc26e62034bca181a4b85de22568a3d39bdb062f05927c6e86c2a48c
-  patches:
-    # Fix logging: Don't defer initialization of logger.
-    #
-    # https://github.com/pyinstaller/pyinstaller/commit/10f5e44604e163383f8f32ab05307edd69ecab1c
-    #
-    - 0001-Fix-logging-Don-t-defer-initialization-of-logger.patch
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: b6c95cdbb45ac78a44723fa2992b58e14637cbefecafc22d3790af262a7fad6f
 
 build:
   number: 0
@@ -57,9 +51,11 @@ requirements:
     - pycrypto
     - pywin32  # [win]
     - zlib 1.2.*
+    - dis3  # [py27]
     - vc 9  # [win and py27]
     - vc 10  # [win and py34]
     - vc 14  # [win and py>=35]
+    - macholib >=1.8
  
 test:
   imports:
@@ -77,6 +73,7 @@ test:
 about:
   home: http://www.pyinstaller.org
   license: GPL 2
+  license_file: COPYING.txt
   summary: PyInstaller bundles a Python application and all its dependencies into a single package.
 
 extra:
