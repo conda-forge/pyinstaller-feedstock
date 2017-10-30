@@ -1,4 +1,4 @@
-PyInstaller -n hello hello.py
+pyinstaller -n hello hello.py
 
 dir dist\hello
 dist\hello\hello.exe

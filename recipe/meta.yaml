@@ -47,7 +47,7 @@ requirements:
   run:
     - python
     - setuptools
-    - pefile >=2017.9.3 # [win]
+    - pefile >=2017.9.3  # [win]
     - pycrypto
     - pywin32  # [win]
     - zlib 1.2.*
