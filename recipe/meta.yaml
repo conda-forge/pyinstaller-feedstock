@@ -47,7 +47,7 @@ requirements:
   run:
     - python
     - setuptools
-    - pefile  # [win]
+    - pefile >=2017.9.3  # [win]
     - pycrypto
     - pywin32  # [win]
     - zlib 1.2.*
@@ -69,6 +69,9 @@ test:
     # These are designed for Windows only.
     - pyi-grab_version --help     # [win]
     - pyi-set_version --help      # [win]
+
+  files:
+    - hello.py
 
 about:
   home: http://www.pyinstaller.org
