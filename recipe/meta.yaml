@@ -1,5 +1,6 @@
 {% set name = "PyInstaller" %}
-{% set version = "3.3" %}
+{% set version = "3.3.1" %}
+{% set sha256 = "715f81f24b1ef0e5fe3b3c71e7540551838e46e9de30882aa7c0a521147fd1ce" %}
 
 package:
   name: {{ name.lower() }}
@@ -8,10 +9,10 @@ package:
 source:
   fn: PyInstaller-{{ version }}.tar.bz2
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b6c95cdbb45ac78a44723fa2992b58e14637cbefecafc22d3790af262a7fad6f
+  sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   features:
     - vc9   # [win and py27]
     - vc10  # [win and py34]
