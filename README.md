@@ -14,14 +14,16 @@ Summary: PyInstaller bundles a Python application and all its dependencies into 
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pyinstaller-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pyinstaller-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pyinstaller-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pyinstaller-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pyinstaller-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pyinstaller-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/pyinstaller-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/pyinstaller-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/pyinstaller-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/pyinstaller-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/pyinstaller-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/pyinstaller-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyinstaller/badges/version.svg)](https://anaconda.org/conda-forge/pyinstaller)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyinstaller/badges/downloads.svg)](https://anaconda.org/conda-forge/pyinstaller)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pyinstaller-green.svg)](https://anaconda.org/conda-forge/pyinstaller) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyinstaller.svg)](https://anaconda.org/conda-forge/pyinstaller) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyinstaller.svg)](https://anaconda.org/conda-forge/pyinstaller) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyinstaller.svg)](https://anaconda.org/conda-forge/pyinstaller) |
 
 Installing pyinstaller
 ======================
