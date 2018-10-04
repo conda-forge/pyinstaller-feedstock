@@ -37,7 +37,7 @@ requirements:
     - python
     - setuptools
     - waf
-    - zlib 1.2.*
+    - zlib
 
   run:
     - python
@@ -45,7 +45,7 @@ requirements:
     - pefile >=2017.9.3  # [win]
     - pycrypto
     - pywin32  # [win]
-    - zlib 1.2.*
+    - zlib
     - dis3  # [py27]
     - macholib >=1.8
  
