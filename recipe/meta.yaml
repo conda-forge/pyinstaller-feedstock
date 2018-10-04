@@ -10,6 +10,13 @@ source:
   fn: PyInstaller-{{ version }}.tar.bz2
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    ##############################################################
+    # Apply upstream patch to fix bootloader build.              #
+    #                                                            #
+    # ref: https://github.com/pyinstaller/pyinstaller/pull/3723  #
+    ##############################################################
+    - PR_3723.patch
 
 build:
   number: 1
