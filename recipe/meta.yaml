@@ -1,6 +1,6 @@
 {% set name = "PyInstaller" %}
-{% set version = "3.3.1" %}
-{% set sha256 = "715f81f24b1ef0e5fe3b3c71e7540551838e46e9de30882aa7c0a521147fd1ce" %}
+{% set version = "3.4" %}
+{% set sha256 = "a5a6e04a66abfcf8761e89a2ebad937919c6be33a7b8963e1a961b55cb35986b" %}
 
 package:
   name: {{ name.lower() }}
@@ -10,16 +10,9 @@ source:
   fn: PyInstaller-{{ version }}.tar.bz2
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    ##############################################################
-    # Apply upstream patch to fix bootloader build.              #
-    #                                                            #
-    # ref: https://github.com/pyinstaller/pyinstaller/pull/3723  #
-    ##############################################################
-    - PR_3723.patch
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -52,10 +45,11 @@ requirements:
     - pefile >=2017.9.3  # [win]
     - pycrypto
     - pywin32  # [win]
+    - pywin32-ctypes  # [win]
     - zlib
     - dis3  # [py27]
     - macholib >=1.8
- 
+
 test:
   imports:
     - PyInstaller
