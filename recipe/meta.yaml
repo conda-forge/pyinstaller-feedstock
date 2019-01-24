@@ -21,6 +21,7 @@ build:
     - pyi-makespec = PyInstaller.utils.cliutils.makespec:run
     - pyi-set_version = PyInstaller.utils.cliutils.set_version:run
   script:
+    - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"               # [unix]
     - python setup.py install --single-version-externally-managed --record=record.txt
   preserve_egg_dir: True
 
