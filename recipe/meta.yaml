@@ -23,19 +23,20 @@ build:
     - pyi-makespec = PyInstaller.utils.cliutils.makespec:run
     - pyi-set_version = PyInstaller.utils.cliutils.set_version:run
   script:
-    - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"               # [unix]
+    - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"                 # [unix]
     - pushd bootloader
-    - waf --prefix="${PREFIX}" --clang distclean all            # [osx]
-    - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
-    - waf --prefix="%LIBRARY_PREFIX%" distclean all             # [win]
+    - waf --prefix="${PREFIX}" --clang distclean all -vvv         # [osx]
+    - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all -vvv  # [linux]
+    - waf --prefix="%LIBRARY_PREFIX%" distclean all -vvv          # [win]
     - popd
-    - python setup.py install --single-version-externally-managed --record=record.txt
+    - python -m pip install --no-deps --ignore-installed .
   preserve_egg_dir: True
 
 requirements:
   build:
     - {{ compiler("c") }}
   host:
+    - pip
     - python
     - setuptools
     - waf
