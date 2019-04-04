@@ -33,10 +33,11 @@ build:
 requirements:
   build:
     - {{ compiler("c") }}
+    - pip
     - python
     - setuptools
-    - pip
   host:
+    - pip
     - python
     - setuptools
     - waf
