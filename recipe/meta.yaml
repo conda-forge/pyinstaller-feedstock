@@ -27,7 +27,7 @@ build:
     - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
     - waf --prefix="%LIBRARY_PREFIX%" distclean all             # [win]
     - popd
-    - python setup.py install --single-version-externally-managed --record=record.txt
+    - "{{ PYTHON }} -m pip install . --no-deps -vv"
   preserve_egg_dir: True
 
 requirements:
