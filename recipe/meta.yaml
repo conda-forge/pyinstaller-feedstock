@@ -15,6 +15,7 @@ source:
 
 build:
   number: 1
+  skip: True  # [osx]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
