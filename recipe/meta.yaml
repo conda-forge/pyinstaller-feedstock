@@ -10,9 +10,12 @@ source:
   fn: PyInstaller-{{ version }}.tar.bz2
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0001-depend-bindepend-find-statically-linked-libraries.patch
 
 build:
-  number: 0
+  number: 1
+  skip: True  # [osx]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -27,13 +30,17 @@ build:
     - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
     - waf --prefix="%LIBRARY_PREFIX%" distclean all             # [win]
     - popd
-    - python setup.py install --single-version-externally-managed --record=record.txt
+    - "{{ PYTHON }} -m pip install . --no-deps -vv"
   preserve_egg_dir: True
 
 requirements:
   build:
     - {{ compiler("c") }}
+    - pip
+    - python
+    - setuptools
   host:
+    - pip
     - python
     - setuptools
     - waf
