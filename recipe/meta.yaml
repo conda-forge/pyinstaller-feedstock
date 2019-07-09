@@ -1,6 +1,6 @@
 {% set name = "PyInstaller" %}
-{% set version = "3.4" %}
-{% set sha256 = "a5a6e04a66abfcf8761e89a2ebad937919c6be33a7b8963e1a961b55cb35986b" %}
+{% set version = "3.5" %}
+{% set sha256 = "ee7504022d1332a3324250faf2135ea56ac71fdb6309cff8cd235de26b1d0a96" %}
 
 package:
   name: {{ name.lower() }}
@@ -14,7 +14,7 @@ source:
     - 0001-depend-bindepend-find-statically-linked-libraries.patch
 
 build:
-  number: 1
+  number: 0
   skip: True  # [osx]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
