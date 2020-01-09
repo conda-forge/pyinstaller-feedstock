@@ -47,13 +47,12 @@ requirements:
     - zlib
 
   run:
+    - altgraph
     - python
-    - setuptools
     - pefile >=2017.9.3  # [win]
     - pycrypto
     - pywin32  # [win]
     - pywin32-ctypes  # [win]
-    - zlib
     - dis3  # [py27]
     - macholib >=1.8
 
