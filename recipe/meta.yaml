@@ -54,6 +54,8 @@ requirements:
     - pywin32-ctypes  # [win]
     - dis3  # [py27]
     - macholib >=1.8
+  run_constrained:
+    - setuptools  <45.0
 
 test:
   imports:
