@@ -14,8 +14,7 @@ source:
     - 0001-depend-bindepend-find-statically-linked-libraries.patch
 
 build:
-  number: 0
-  skip: True  # [osx]
+  number: 1
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -38,11 +37,11 @@ requirements:
     - {{ compiler("c") }}
     - pip
     - python
-    - setuptools
+    - setuptools  <45.0
   host:
     - pip
     - python
-    - setuptools
+    - setuptools   <45.0
     - waf
     - zlib
 
