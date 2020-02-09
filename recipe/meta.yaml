@@ -12,10 +12,10 @@ source:
   sha256: {{ sha256 }}
   patches:
     - 0001-depend-bindepend-find-statically-linked-libraries.patch
+    - 0002-Bootloader-build-Fallback-to-a-default-min-macOS-ver.patch
 
 build:
   number: 0
-  skip: True  # [osx]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -25,6 +25,7 @@ build:
     - pyi-set_version = PyInstaller.utils.cliutils.set_version:run
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"               # [unix]
+    - export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${macos_min_version}"  # [osx]
     - pushd bootloader
     - waf --prefix="${PREFIX}" --clang distclean all            # [osx]
     - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
