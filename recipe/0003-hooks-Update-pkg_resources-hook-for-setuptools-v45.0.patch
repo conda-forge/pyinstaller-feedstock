@@ -1,0 +1,35 @@
+From 9c6a859e0445915de4153214bb61f0781c22e01f Mon Sep 17 00:00:00 2001
+From: Hartmut Goebel <h.goebel@crazy-compilers.com>
+Date: Sun, 12 Jan 2020 15:42:26 +0100
+Subject: [PATCH 3/3] hooks: Update pkg_resources hook for setuptools v45.0.0.
+
+---
+ PyInstaller/hooks/hook-pkg_resources.py | 5 +++++
+ news/setuptools45.hooks.rst             | 1 +
+ 2 files changed, 6 insertions(+)
+ create mode 100644 news/setuptools45.hooks.rst
+
+diff --git a/PyInstaller/hooks/hook-pkg_resources.py b/PyInstaller/hooks/hook-pkg_resources.py
+index 3053426d..72ad4835 100644
+--- a/PyInstaller/hooks/hook-pkg_resources.py
++++ b/PyInstaller/hooks/hook-pkg_resources.py
+@@ -14,4 +14,9 @@ from PyInstaller.utils.hooks import collect_submodules
+ # sys.meta_path based import magic to expose them as pkg_resources.extern.*
+ hiddenimports = collect_submodules('pkg_resources._vendor')
+ 
++# pkg_resources v45.0 dropped support for Python 2 and added this
++# module printing a warning. We could save some bytes if we would
++# replace this by a fake module.
++hiddenimports.append('pkg_resources.py2_warn')
++
+ excludedimports = ['__main__']
+diff --git a/news/setuptools45.hooks.rst b/news/setuptools45.hooks.rst
+new file mode 100644
+index 00000000..a4ea719b
+--- /dev/null
++++ b/news/setuptools45.hooks.rst
+@@ -0,0 +1 @@
++Update pkg_resources hook for setuptools v45.0.0.
+-- 
+2.23.0
+

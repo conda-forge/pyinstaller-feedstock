@@ -13,9 +13,10 @@ source:
   patches:
     - 0001-depend-bindepend-find-statically-linked-libraries.patch
     - 0002-Bootloader-build-Fallback-to-a-default-min-macOS-ver.patch
+    - 0003-hooks-Update-pkg_resources-hook-for-setuptools-v45.0.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
