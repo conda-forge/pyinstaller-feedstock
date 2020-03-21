@@ -27,6 +27,8 @@ build:
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"               # [unix]
     - export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${macos_min_version}"  # [osx]
+    # Remove the pre-compiled bootloaders (available in sdist)
+    - rm -fr ${SRC_DIR}/PyInstaller/bootloader/{Darwin,Linux,Windows}-{64,32}bit  # [unix]
     - pushd bootloader
     - waf --prefix="${PREFIX}" --clang distclean all            # [osx]
     - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
