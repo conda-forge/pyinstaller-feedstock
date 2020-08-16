@@ -8,6 +8,14 @@ jobs:
     vmImage: ubuntu-16.04
   strategy:
     matrix:
+      linux_64_python3.6.____cpython:
+        CONFIG: linux_64_python3.6.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_64_python3.7.____cpython:
+        CONFIG: linux_64_python3.7.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
       linux_aarch64_python3.6.____cpython:
         CONFIG: linux_aarch64_python3.6.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -24,18 +32,15 @@ jobs:
         CONFIG: linux_ppc64le_python3.7.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: condaforge/linux-anvil-ppc64le
-      linux_python3.6.____cpython:
-        CONFIG: linux_python3.6.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_python3.7.____cpython:
-        CONFIG: linux_python3.7.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: condaforge/linux-anvil-comp7
     maxParallel: 8
   timeoutInMinutes: 360
 
   steps:
+  - script: |
+         rm -rf /opt/ghc
+         df -h
+    displayName: Manage disk space
+
   # configure qemu binfmt-misc running.  This allows us to run docker containers
   # embedded qemu-static
   - script: |
@@ -47,6 +52,7 @@ jobs:
   - script: |
         export CI=azure
         export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
         .scripts/run_docker_build.sh
     displayName: Run docker build
     env:
