@@ -1,4 +1,4 @@
-From 75b489cf3dcb937cba7810bfda4e407213a1f2c9 Mon Sep 17 00:00:00 2001
+From dde69ecfc8aecfefcea1567db5b331dd77bf4bad Mon Sep 17 00:00:00 2001
 From: slewt <leland@lcweathers.net>
 Date: Tue, 10 Jul 2018 12:56:35 -0500
 Subject: [PATCH] depend/bindepend: find statically linked libraries
@@ -11,10 +11,10 @@ PR does result in working code with simple Flask application from conda virtual 
  1 file changed, 8 insertions(+)
 
 diff --git a/PyInstaller/depend/bindepend.py b/PyInstaller/depend/bindepend.py
-index 7da7baf5..f01b5c84 100644
+index 47ae336d..29b343ee 100644
 --- a/PyInstaller/depend/bindepend.py
 +++ b/PyInstaller/depend/bindepend.py
-@@ -881,6 +881,14 @@ def get_python_library_path():
+@@ -919,6 +919,14 @@ def get_python_library_path():
              if python_libname:
                  return python_libname
  
@@ -30,5 +30,5 @@ index 7da7baf5..f01b5c84 100644
          # On MacPython, Analysis.assemble is able to find the libpython with
          # no additional help, asking for sys.executable dependencies.
 -- 
-2.20.1
+2.26.2
 

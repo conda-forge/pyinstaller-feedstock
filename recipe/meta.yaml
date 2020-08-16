@@ -1,22 +1,20 @@
-{% set name = "PyInstaller" %}
-{% set version = "3.6" %}
-{% set sha256 = "3730fa80d088f8bb7084d32480eb87cbb4ddb64123363763cf8f2a1378c1c4b7" %}
+{% set name = "pyinstaller" %}
+{% set version = "4.0" %}
+{% set sha256 = "970beb07115761d5e4ec317c1351b712fd90ae7f23994db914c633281f99bab0" %}
 
 package:
   name: {{ name.lower() }}
   version: {{ version }}
 
 source:
-  fn: PyInstaller-{{ version }}.tar.bz2
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
     - 0001-depend-bindepend-find-statically-linked-libraries.patch
-    - 0002-Bootloader-build-Fallback-to-a-default-min-macOS-ver.patch
-    - 0003-hooks-Update-pkg_resources-hook-for-setuptools-v45.0.patch
 
 build:
-  number: 1
+  number: 0
+  skip: True  # [py<35 or py>37]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -53,12 +51,12 @@ requirements:
   run:
     - altgraph
     - python
-    - pefile >=2017.9.3  # [win]
+    - pefile >=2017.9.3       # [win]
     - pycrypto
-    - pywin32  # [win]
-    - pywin32-ctypes  # [win]
-    - dis3  # [py27]
+    - pywin32                 # [win]
+    - pywin32-ctypes >=0.2.0  # [win]
     - macholib >=1.8
+    - pyinstaller-hooks-contrib >=2020.6
 
 test:
   imports:
