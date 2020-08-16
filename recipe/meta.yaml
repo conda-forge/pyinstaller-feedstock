@@ -79,7 +79,7 @@ test:
 about:
   home: http://www.pyinstaller.org
   # https://github.com/pyinstaller/pyinstaller/blob/v3.6/COPYING.txt#L11
-  license: GPL-2.0-or-later
+  license: GPL-2.0-or-later WITH Bootloader-exception
   license_family: GPL
   license_file: COPYING.txt
   summary: PyInstaller bundles a Python application and all its dependencies into a single package.
