@@ -13,7 +13,7 @@ source:
     - 0001-depend-bindepend-find-statically-linked-libraries.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<35 or py>37]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
@@ -24,7 +24,7 @@ build:
     - pyi-set_version = PyInstaller.utils.cliutils.set_version:run
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"               # [unix]
-    - export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${macos_min_version}"  # [osx]
+    - export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"  # [osx]
     # Remove the pre-compiled bootloaders (available in sdist)
     - rm -fr ${SRC_DIR}/PyInstaller/bootloader/{Darwin,Linux,Windows}-{64,32}bit  # [unix]
     - pushd bootloader
@@ -52,7 +52,6 @@ requirements:
     - altgraph
     - python
     - pefile >=2017.9.3       # [win]
-    - pycrypto
     - pywin32                 # [win]
     - pywin32-ctypes >=0.2.0  # [win]
     - macholib >=1.8
