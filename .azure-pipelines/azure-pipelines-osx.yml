@@ -14,7 +14,6 @@ jobs:
       osx_64_python3.7.____cpython:
         CONFIG: osx_64_python3.7.____cpython
         UPLOAD_PACKAGES: 'True'
-    maxParallel: 8
   timeoutInMinutes: 360
 
   steps:

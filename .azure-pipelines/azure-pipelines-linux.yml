@@ -32,7 +32,6 @@ jobs:
         CONFIG: linux_ppc64le_python3.7.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: condaforge/linux-anvil-ppc64le
-    maxParallel: 8
   timeoutInMinutes: 360
 
   steps:

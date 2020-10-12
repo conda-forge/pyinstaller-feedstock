@@ -5,11 +5,9 @@ Home: http://www.pyinstaller.org
 
 Package license: GPL-2.0-or-later WITH Bootloader-exception
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyinstaller-feedstock/blob/master/LICENSE.txt)
 
 Summary: PyInstaller bundles a Python application and all its dependencies into a single package.
-
-
 
 Current build status
 ====================
