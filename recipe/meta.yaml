@@ -13,8 +13,8 @@ source:
     - 0001-depend-bindepend-find-statically-linked-libraries.patch
 
 build:
-  number: 1
-  skip: True  # [py<35 or py>37]
+  number: 2
+  skip: True  # [py<35 or py>38]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
