@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "4.0" %}
-{% set sha256 = "970beb07115761d5e4ec317c1351b712fd90ae7f23994db914c633281f99bab0" %}
+{% set version = "4.1" %}
+{% set sha256 = "954ae81de9a4bc096ff02433b3e245b9272fe53f27cac319e71fe7540952bd3d" %}
 
 package:
   name: {{ name.lower() }}
@@ -14,8 +14,8 @@ source:
     - 0002-don-t-set-arch.patch
 
 build:
-  number: 2
-  skip: True  # [py<35 or py>38]
+  number: 0
+  skip: true  # [py<35 or py>38]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -33,8 +33,8 @@ build:
     - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
     - waf --prefix="%LIBRARY_PREFIX%" distclean all             # [win]
     - popd
-    - "{{ PYTHON }} -m pip install . --no-deps -vv"
-  preserve_egg_dir: True
+    - {{ PYTHON }} -m pip install . --no-deps -vv
+  preserve_egg_dir: true
 
 requirements:
   build:
