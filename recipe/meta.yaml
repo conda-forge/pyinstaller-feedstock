@@ -58,6 +58,7 @@ requirements:
     - pywin32-ctypes >=0.2.0  # [win]
     - macholib >=1.8
     - pyinstaller-hooks-contrib >=2020.6
+    - setuptools  # due to pkg_resources import
 
 test:
   imports:
