@@ -14,7 +14,7 @@ source:
     - 0002-don-t-set-arch.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<35 or py>39]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
@@ -59,7 +59,7 @@ requirements:
     - macholib >=1.8
     - pyinstaller-hooks-contrib >=2020.6
     - setuptools  # due to pkg_resources import
-    - importlib-metadata  # [py<38]
+    - importlib-metadata >=0.8  # [py<38]
 
 test:
   imports:
