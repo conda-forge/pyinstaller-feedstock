@@ -10,7 +10,6 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 0001-depend-bindepend-find-statically-linked-libraries.patch
     - 0002-don-t-set-arch.patch
 
 build:
