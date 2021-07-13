@@ -9,6 +9,9 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # Fixes compiler/linker errors when building on macos
+    - 0001-Remove-custom-compiler-linker-flags-when-building-ma.patch
 
 build:
   number: 0

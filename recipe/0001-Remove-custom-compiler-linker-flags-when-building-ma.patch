@@ -1,0 +1,42 @@
+From bdcd4ca622249291c2edda908ce666c73c820480 Mon Sep 17 00:00:00 2001
+From: Bruno Oliveira <nicoddemus@gmail.com>
+Date: Tue, 13 Jul 2021 10:33:25 -0300
+Subject: [PATCH] Remove custom compiler/linker flags when building macos
+ bootloader
+
+Otherwise we get this error:
+
+    ld: warning: ignoring file /Users/runner/miniforge3/conda-bld/pyinstaller_1626182860414/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeho/lib/libz.dylib, building for macOS-x86_64 but attempting to link with file built for macOS-arm64
+    Undefined symbols for architecture x86_64:
+      "_inflate", referenced from:
+          __pyi_arch_extract_compressed in pyi_archive.c.1.o
+      "_inflateEnd", referenced from:
+          __pyi_arch_extract_compressed in pyi_archive.c.1.o
+      "_inflateInit_", referenced from:
+          __pyi_arch_extract_compressed in pyi_archive.c.1.o
+    ld: symbol(s) not found for architecture x86_64
+    clang-11: error: linker command failed with exit code 1 (use -v to see invocation)
+
+Originally introduced in #50.
+
+---
+ bootloader/wscript | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/bootloader/wscript b/bootloader/wscript
+index 0b22b89e..6fc4696d 100644
+--- a/bootloader/wscript
++++ b/bootloader/wscript
+@@ -361,9 +361,6 @@ def check_arch_cflag(cflag32, cflag64):
+                 mac_arch = UNIVERSAL2_FLAGS
+             else:
+                 mac_arch = ['-arch', 'x86_64']
+-        ctx.env.append_value('CFLAGS', mac_arch)
+-        ctx.env.append_value('CXXFLAGS', mac_arch)
+-        ctx.env.append_value('LINKFLAGS', mac_arch)
+ 
+     # AIX specific flags
+     elif ctx.env.DEST_OS == 'aix':
+-- 
+2.31.0.windows.1
+
