@@ -1,4 +1,4 @@
-From 1ed806cb2d9069d9c540d1ddbae57990aaf9efb3 Mon Sep 17 00:00:00 2001
+From 3419eb5955c0ae7320312a9f8184fc20939ef0d3 Mon Sep 17 00:00:00 2001
 From: Isuru Fernando <isuruf@gmail.com>
 Date: Sat, 17 Oct 2020 22:37:44 -0500
 Subject: [PATCH 2/2] don't set -arch
@@ -8,10 +8,10 @@ Subject: [PATCH 2/2] don't set -arch
  1 file changed, 3 deletions(-)
 
 diff --git a/bootloader/wscript b/bootloader/wscript
-index 587f5a8..00df572 100755
+index ae1d133..35c882b 100644
 --- a/bootloader/wscript
 +++ b/bootloader/wscript
-@@ -361,9 +361,6 @@ def set_arch_flags(ctx):
+@@ -366,9 +366,6 @@ def set_arch_flags(ctx):
                  mac_arch = UNIVERSAL2_FLAGS
              else:
                  mac_arch = ['-arch', 'x86_64']
@@ -22,5 +22,5 @@ index 587f5a8..00df572 100755
      # AIX specific flags
      elif ctx.env.DEST_OS == 'aix':
 -- 
-2.32.0
+2.31.1
 
