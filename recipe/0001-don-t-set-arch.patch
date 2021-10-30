@@ -1,0 +1,25 @@
+From 91f9869be5a433e1c8d83969d42c60e94d2367ec Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Sat, 17 Oct 2020 22:37:44 -0500
+Subject: [PATCH] don't set -arch
+
+---
+ bootloader/wscript | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/bootloader/wscript b/bootloader/wscript
+index b68de674..6470b333 100644
+--- a/bootloader/wscript
++++ b/bootloader/wscript
+@@ -376,8 +376,6 @@ def check_arch_cflag(cflag32, cflag64):
+             else:
+                 # Default to whatever the compiler is configured to build.
+                 mac_arch = []
+-        ctx.env.append_value('CFLAGS', mac_arch)
+-        ctx.env.append_value('LINKFLAGS', mac_arch)
+ 
+     # AIX specific flags
+     elif ctx.env.DEST_OS == 'aix':
+-- 
+2.33.1
+
