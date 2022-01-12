@@ -52,7 +52,7 @@ requirements:
   run:
     - altgraph
     - python
-    - pefile >= 2017.8.1      # [win]
+    - pefile >=2017.8.1       # [win]
     - pywin32                 # [win]
     - pywin32-ctypes >=0.2.0  # [win]
     - macholib >=1.8
