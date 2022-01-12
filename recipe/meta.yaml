@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<35 or py>310]
+  skip: true  # [py<36 or py>310]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -52,7 +52,7 @@ requirements:
   run:
     - altgraph
     - python
-    - pefile >=2017.9.3       # [win]
+    - pefile >= 2017.8.1      # [win]
     - pywin32                 # [win]
     - pywin32-ctypes >=0.2.0  # [win]
     - macholib >=1.8
@@ -82,6 +82,7 @@ about:
   license: GPL-2.0-or-later WITH Bootloader-exception
   license_family: GPL
   license_file: COPYING.txt
+  dev_url: https://github.com/pyinstaller/pyinstaller
   summary: PyInstaller bundles a Python application and all its dependencies into a single package.
 
 extra:
