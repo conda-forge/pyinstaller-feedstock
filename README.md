@@ -9,6 +9,8 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyinstaller-fee
 
 Summary: PyInstaller bundles a Python application and all its dependencies into a single package.
 
+Development: https://github.com/pyinstaller/pyinstaller
+
 Current build status
 ====================
 
