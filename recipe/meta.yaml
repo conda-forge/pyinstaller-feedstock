@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<36 or py>310]
+  skip: true  # [py<37 or py>310]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
