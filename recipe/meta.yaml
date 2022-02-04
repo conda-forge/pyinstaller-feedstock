@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "4.8" %}
-{% set sha256 = "7ae868bbcc502832a2c802c84a1dbb9f48b44445c50144c29bfcd7b760140e13" %}
+{% set version = "4.9" %}
+{% set sha256 = "75a180a658871bc41f9cf94b6f90ffa54e98f5d6a7cdb02d7530f0360afe24f9" %}
 
 package:
   name: {{ name.lower() }}
@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<36 or py>310]
+  skip: true  # [py<37 or py>310]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
