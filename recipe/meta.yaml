@@ -13,7 +13,7 @@ source:
     - 0001-don-t-set-arch.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37 or py>310]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
@@ -23,6 +23,7 @@ build:
     - pyi-makespec = PyInstaller.utils.cliutils.makespec:run
     - pyi-set_version = PyInstaller.utils.cliutils.set_version:run
   script:
+    - export PYI_STATIC_ZLIB=1  # [unix]
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"               # [unix]
     - export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"  # [osx]
     # Remove the pre-compiled bootloaders (available in sdist)
