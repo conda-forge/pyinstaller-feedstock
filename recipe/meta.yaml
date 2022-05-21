@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "5.0.1" %}
-{% set sha256 = "25f5f758b005c66471af0d452c90ec328179116afe9d5bd82f5fb06d9416267b" %}
+{% set version = "5.1" %}
+{% set sha256 = "9596c70c860cbce19537354db95b180351959b4cd14a70db6ab1d1432668c313" %}
 
 package:
   name: {{ name.lower() }}
@@ -28,10 +28,15 @@ build:
     - export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"  # [osx]
     # Remove the pre-compiled bootloaders (available in sdist)
     - rm -fr ${SRC_DIR}/PyInstaller/bootloader/{Darwin,Linux,Windows}-{64,32}bit  # [unix]
+    # Remove vendored waflib dir
+    - rm -fr ${SRC_DIR}/bootloader/waflib   # [unix]
+    - rd /s /q %SRC_DIR%\bootloader\waflib  # [win]
+    # Build the bootloader
     - pushd bootloader
     - waf --prefix="${PREFIX}" --clang distclean all            # [osx]
     - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
     - waf --prefix="%LIBRARY_PREFIX%" distclean all             # [win]
+    # Build the package
     - popd
     - {{ PYTHON }} -m pip install . --no-deps -vv
   preserve_egg_dir: true
