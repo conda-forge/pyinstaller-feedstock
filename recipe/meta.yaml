@@ -28,10 +28,15 @@ build:
     - export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"  # [osx]
     # Remove the pre-compiled bootloaders (available in sdist)
     - rm -fr ${SRC_DIR}/PyInstaller/bootloader/{Darwin,Linux,Windows}-{64,32}bit  # [unix]
+    # Remove vendored waflib dir
+    - rm -fr ${SRC_DIR}/bootloader/waflib   # [unix]
+    - rd /s /q %SRC_DIR%\bootloader\waflib  # [win]
+    # Build the bootloader
     - pushd bootloader
     - waf --prefix="${PREFIX}" --clang distclean all            # [osx]
     - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
     - waf --prefix="%LIBRARY_PREFIX%" distclean all             # [win]
+    # Build the package
     - popd
     - {{ PYTHON }} -m pip install . --no-deps -vv
   preserve_egg_dir: true
