@@ -20,5 +20,7 @@ python:
 - 3.8.* *_cpython
 target_platform:
 - osx-arm64
+waf:
+- 2.0.20
 zlib:
 - '1.2'

@@ -14,5 +14,7 @@ python:
 - 3.7.* *_cpython
 target_platform:
 - win-64
+waf:
+- 2.0.20
 zlib:
 - '1.2'
