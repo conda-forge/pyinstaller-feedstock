@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "5.7.0" %}
-{% set sha256 = "0e5953937d35f0b37543cc6915dacaf3239bcbdf3fd3ecbb7866645468a16775" %}
+{% set version = "5.8.0" %}
+{% set sha256 = "314fb883caf3cbf06adbea2b77671bb73c3481568e994af0467ea7e47eb64755" %}
 
 package:
   name: {{ name.lower() }}
