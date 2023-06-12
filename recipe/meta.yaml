@@ -13,8 +13,8 @@ source:
     - 0001-don-t-set-arch.patch
 
 build:
-  number: 0
-  skip: true  # [py<37 or py>310]
+  number: 1
+  skip: true  # [py<37 or py>311]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
