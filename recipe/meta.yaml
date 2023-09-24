@@ -64,7 +64,7 @@ requirements:
     - pywin32-ctypes >=0.2.1  # [win]
     - macholib >=1.8  # [osx]
     - pyinstaller-hooks-contrib >=2021.4
-    - setuptools >= 42.0.0
+    - setuptools >=42.0.0
     - importlib-metadata >=4.6  # [py<310]
 
 test:
