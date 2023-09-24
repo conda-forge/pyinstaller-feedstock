@@ -34,7 +34,7 @@ build:
     # Build the bootloader
     - pushd bootloader
     - waf --prefix="${PREFIX}" --clang distclean all            # [osx]
-    - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
+    - waf --prefix="${PREFIX}" --gcc distclean all     # [linux]
     - waf --prefix="%LIBRARY_PREFIX%" distclean all             # [win]
     # Build the package
     - popd
