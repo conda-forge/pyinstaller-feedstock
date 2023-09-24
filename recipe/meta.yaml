@@ -57,14 +57,15 @@ requirements:
 
   run:
     - altgraph
+    - packaging >=20.0
     - python
     - pefile >=2022.5.30      # [win]
     - pywin32                 # [win]
-    - pywin32-ctypes >=0.2.0  # [win]
-    - macholib >=1.8
+    - pywin32-ctypes >=0.2.1  # [win]
+    - macholib >=1.8  # [osx]
     - pyinstaller-hooks-contrib >=2021.4
-    - setuptools  # due to pkg_resources import
-    - importlib-metadata >=0.8  # [py<38]
+    - setuptools >= 42.0.0
+    - importlib-metadata >=4.6  # [py<310]
 
 test:
   imports:
