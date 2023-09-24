@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "5.13.0" %}
-{% set sha256 = "5e446df41255e815017d96318e39f65a3eb807e74a796c7e7ff7f13b6366a2e9" %}
+{% set version = "6.0.0" %}
+{% set sha256 = "d702cff041f30e7a53500b630e07b081e5328d4655023319253d73935e75ade2" %}
 
 package:
   name: {{ name.lower() }}
@@ -34,7 +34,7 @@ build:
     # Build the bootloader
     - pushd bootloader
     - waf --prefix="${PREFIX}" --clang distclean all            # [osx]
-    - waf --prefix="${PREFIX}" --gcc --no-lsb distclean all     # [linux]
+    - waf --prefix="${PREFIX}" --gcc distclean all     # [linux]
     - waf --prefix="%LIBRARY_PREFIX%" distclean all             # [win]
     # Build the package
     - popd
@@ -57,14 +57,15 @@ requirements:
 
   run:
     - altgraph
+    - packaging >=20.0
     - python
     - pefile >=2022.5.30      # [win]
     - pywin32                 # [win]
-    - pywin32-ctypes >=0.2.0  # [win]
-    - macholib >=1.8
+    - pywin32-ctypes >=0.2.1  # [win]
+    - macholib >=1.8  # [osx]
     - pyinstaller-hooks-contrib >=2021.4
-    - setuptools  # due to pkg_resources import
-    - importlib-metadata >=0.8  # [py<38]
+    - setuptools >=42.0.0
+    - importlib-metadata >=4.6  # [py<310]
 
 test:
   imports:
