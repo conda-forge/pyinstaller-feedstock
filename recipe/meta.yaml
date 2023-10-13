@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "6.0.0" %}
-{% set sha256 = "d702cff041f30e7a53500b630e07b081e5328d4655023319253d73935e75ade2" %}
+{% set version = "6.1.0" %}
+{% set sha256 = "8f3d49c60f3344bf3d4a6d4258bda665dad185ab2b097341d3af2a6387c838ef" %}
 
 package:
   name: {{ name.lower() }}
@@ -13,7 +13,7 @@ source:
     - 0001-don-t-set-arch.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<37 or py>311]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
