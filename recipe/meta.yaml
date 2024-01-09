@@ -13,7 +13,7 @@ source:
     - 0001-don-t-set-arch.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<38 or py>312]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
@@ -57,7 +57,7 @@ requirements:
 
   run:
     - altgraph
-    - packaging >=20.0
+    - packaging >=22.0
     - python
     - pefile >=2022.5.30      # [win]
     - pywin32                 # [win]
