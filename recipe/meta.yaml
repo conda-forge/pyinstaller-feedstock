@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "6.3.0" %}
-{% set sha256 = "914d4c96cc99472e37ac552fdd82fbbe09e67bb592d0717fcffaa99ea74273df" %}
+{% set version = "6.4.0" %}
+{% set sha256 = "1bf608ed947b58614711275a7ff169289b32560dc97ec748ebd5fa8bdec80649" %}
 
 package:
   name: {{ name.lower() }}
@@ -13,7 +13,7 @@ source:
     - 0001-don-t-set-arch.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<38 or py>312]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
@@ -63,7 +63,7 @@ requirements:
     - pywin32                 # [win]
     - pywin32-ctypes >=0.2.1  # [win]
     - macholib >=1.8  # [osx]
-    - pyinstaller-hooks-contrib >=2021.4
+    - pyinstaller-hooks-contrib >=2024.0
     - setuptools >=42.0.0
     - importlib-metadata >=4.6  # [py<310]
 
