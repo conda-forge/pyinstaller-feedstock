@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "6.6.0" %}
-{% set sha256 = "be6bc2c3073d3e84fb7148d3af33ce9b6a7f01cfb154e06314cd1d4c05798a32" %}
+{% set version = "6.7.0" %}
+{% set sha256 = "8f09179c5f3d1b4b8453ac61adfe394dd416f9fc33abd7553f77d4897bc3a582" %}
 
 package:
   name: {{ name.lower() }}
@@ -44,6 +44,7 @@ build:
 requirements:
   build:
     - {{ compiler("c") }}
+    - {{ stdlib("c") }}
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - pip
     - python
