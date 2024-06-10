@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "6.7.0" %}
-{% set sha256 = "8f09179c5f3d1b4b8453ac61adfe394dd416f9fc33abd7553f77d4897bc3a582" %}
+{% set version = "6.8.0" %}
+{% set sha256 = "3f4b6520f4423fe19bcc2fd63ab7238851ae2bdcbc98f25bc5d2f97cc62012e9" %}
 
 package:
   name: {{ name.lower() }}
@@ -64,7 +64,7 @@ requirements:
     - pywin32                 # [win]
     - pywin32-ctypes >=0.2.1  # [win]
     - macholib >=1.8  # [osx]
-    - pyinstaller-hooks-contrib >=2024.3
+    - pyinstaller-hooks-contrib >=2024.6
     - setuptools >=42.0.0
     - importlib-metadata >=4.6  # [py<310]
 
