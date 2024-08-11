@@ -10,7 +10,8 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 0001-don-t-set-arch.patch
+    - patches/0001-don-t-set-arch.patch
+    - patches/0002-Specify-missing-header-for-_NSGetExecutablePath.patch
 
 build:
   number: 0
