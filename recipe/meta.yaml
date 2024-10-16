@@ -11,7 +11,6 @@ source:
   sha256: {{ sha256 }}
   patches:
     - patches/0001-don-t-set-arch.patch
-    - patches/0002-Specify-missing-header-for-_NSGetExecutablePath.patch
 
 build:
   number: 0
