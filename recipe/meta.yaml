@@ -60,11 +60,11 @@ requirements:
     - altgraph
     - packaging >=22.0
     - python
-    - pefile >=2022.5.30      # [win]
+    - pefile >=2022.5.30,!= 2024.8.26      # [win]
     - pywin32                 # [win]
     - pywin32-ctypes >=0.2.1  # [win]
     - macholib >=1.8  # [osx]
-    - pyinstaller-hooks-contrib >=2024.6
+    - pyinstaller-hooks-contrib >=2024.8
     - setuptools >=42.0.0
     - importlib-metadata >=4.6  # [py<310]
 
