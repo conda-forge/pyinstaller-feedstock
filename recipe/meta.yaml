@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "6.10.0" %}
-{% set sha256 = "143840f8056ff7b910bf8f16f6cd92cc10a6c2680bb76d0a25d558d543d21270" %}
+{% set version = "6.11.0" %}
+{% set sha256 = "cb4d433a3db30d9d17cf5f2cf7bb4df80a788d493c1d67dd822dc5791d9864af" %}
 
 package:
   name: {{ name.lower() }}
@@ -11,7 +11,6 @@ source:
   sha256: {{ sha256 }}
   patches:
     - patches/0001-don-t-set-arch.patch
-    - patches/0002-Specify-missing-header-for-_NSGetExecutablePath.patch
 
 build:
   number: 0
@@ -61,11 +60,11 @@ requirements:
     - altgraph
     - packaging >=22.0
     - python
-    - pefile >=2022.5.30      # [win]
+    - pefile >=2022.5.30,!= 2024.8.26      # [win]
     - pywin32                 # [win]
     - pywin32-ctypes >=0.2.1  # [win]
     - macholib >=1.8  # [osx]
-    - pyinstaller-hooks-contrib >=2024.6
+    - pyinstaller-hooks-contrib >=2024.8
     - setuptools >=42.0.0
     - importlib-metadata >=4.6  # [py<310]
 
