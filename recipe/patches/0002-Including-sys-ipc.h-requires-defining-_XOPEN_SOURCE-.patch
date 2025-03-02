@@ -1,0 +1,26 @@
+From 1eb5142c2182f01964841b49db6489d893778535 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Sun, 9 Feb 2025 18:08:12 +0000
+Subject: [PATCH 2/2] Including sys/ipc.h requires defining _XOPEN_SOURCE in
+ glibc <2.25
+
+---
+ bootloader/wscript | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/bootloader/wscript b/bootloader/wscript
+index 0c7912ceb..953b843c0 100644
+--- a/bootloader/wscript
++++ b/bootloader/wscript
+@@ -537,6 +537,8 @@ def configure(ctx):
+             #     _BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE
+             ctx.env.append_value('DEFINES', '_DEFAULT_SOURCE')
+ 
++            ctx.env.append_value('DEFINES', '_XOPEN_SOURCE=700')
++
+             # TODO: What other platforms support _FORTIFY_SOURCE macro? macOS?
+             # TODO: macOS's CLang appears to support this macro as well. See:
+             # https://marc.info/?l=cfe-dev&m=122032133830183
+-- 
+2.46.1
+
