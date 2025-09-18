@@ -47,13 +47,13 @@ requirements:
     - {{ compiler("c") }}
     - {{ stdlib("c") }}
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - hatchling
     - pip
     - python
-    - setuptools
   host:
+    - hatchling
     - pip
     - python
-    - setuptools
     - waf
     - zlib
 
