@@ -1,6 +1,6 @@
 {% set name = "pyinstaller" %}
-{% set version = "6.16.0" %}
-{% set sha256 = "53559fe1e041a234f2b4dcc3288ea8bdd57f7cad8a6644e422c27bb407f3edef" %}
+{% set version = "6.17.0" %}
+{% set sha256 = "be372bd911392b88277e510940ac32a5c2a6ce4b8d00a311c78fa443f4f27313" %}
 
 package:
   name: {{ name.lower() }}
@@ -14,8 +14,8 @@ source:
     - patches/0002-Including-sys-ipc.h-requires-defining-_XOPEN_SOURCE-.patch
 
 build:
-  number: 1
-  skip: true  # [py<38 or py>314]
+  number: 0
+  skip: true  # [py<38 or py>315]
   entry_points:
     - pyinstaller = PyInstaller.__main__:run
     - pyi-archive_viewer = PyInstaller.utils.cliutils.archive_viewer:run
@@ -65,7 +65,7 @@ requirements:
     - pywin32                 # [win]
     - pywin32-ctypes >=0.2.1  # [win]
     - macholib >=1.8  # [osx]
-    - pyinstaller-hooks-contrib >=2025.8
+    - pyinstaller-hooks-contrib >=2025.9
     - setuptools >=42.0.0
     - importlib-metadata >=4.6  # [py<310]
 
